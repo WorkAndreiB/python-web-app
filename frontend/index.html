@@ -11,28 +11,55 @@
 </head>
 
 <body>
-    <main>
-        <h1>Password Generator</h1>
+    <main class="page-shell">
+        <section class="generator-card" aria-labelledby="page-title">
+            <div class="brand-mark" aria-hidden="true">✳</div>
+            <p class="eyebrow">SIMPLE. SECURE. YOURS.</p>
+            <h1 id="page-title">Password Generator</h1>
+            <p class="intro">Create a strong password in seconds. Make it yours, keep it safe.</p>
 
-        <label for="password-length">Password Length</label>
+            <div class="password-panel">
+                <span class="panel-label">YOUR PASSWORD</span>
+                <p id="generated-password" aria-live="polite" aria-atomic="true">Your password will appear here</p>
+                <button id="copy-button" class="copy-button" type="button">
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                        <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                    <span>Copy</span>
+                </button>
+            </div>
 
-        <input
-            type="number"
-            id="password-length"
-            min="8"
-            max="128"
-            value="16"
-        >
+            <div class="controls">
+                <div class="length-control">
+                    <label for="password-length">Password length</label>
+                    <span class="length-hint">8–128 characters</span>
+                    <input
+                        type="number"
+                        id="password-length"
+                        min="8"
+                        max="128"
+                        value="16"
+                    >
+                </div>
 
-        <button id="generate-button">
-            Generate Password
-        </button>
+                <button id="generate-button" class="generate-button" type="button">
+                    <span>Generate password</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M20 7v5h-5M4 17v-5h5"></path>
+                        <path d="M5.6 9a7 7 0 0 1 11.7-2L20 12M4 12l2.7 5a7 7 0 0 0 11.7-2"></path>
+                    </svg>
+                </button>
+            </div>
 
-        <p id="generated-password"></p>
-        
-        <button id="copy-button" type="button">
-            Copy Password
-        </button>
+            <p class="security-note">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3"></path>
+                </svg>
+                No account required
+            </p>
+        </section>
     </main>
 
     <script src="js/main.js"></script>
