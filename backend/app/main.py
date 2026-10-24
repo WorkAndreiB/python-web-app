@@ -1,11 +1,10 @@
-from fastapi import FastAPI, Query
-from password_generator import generate_password
+from fastapi import FastAPI
+from .api import password_generator
 
 app = FastAPI()
 
-
-@app.get("/password")
-def get_password(length: int = Query(default=12, ge=8, le=128)):
-    password = generate_password(length)
-
-    return {"password": password}
+app.include_router(
+    router=password_generator.pass_generator_router,
+    prefix="/password",
+    tags=["Password Generator"]
+)
