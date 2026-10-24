@@ -10,7 +10,7 @@
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 
     // make the specified port available to the host machine
-    "forwardPorts": [8000],
+    "forwardPorts": [8000, 5500],
 
     "postCreateCommand": "pip install -e /workspace/python/password-generator",
 

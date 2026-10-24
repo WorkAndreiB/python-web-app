@@ -7,4 +7,5 @@ pass_generator_router = APIRouter()
 def get_password(length: int = Query(default=12, ge=8, le=128)):
     password = generate_password(length)
 
+
     return {"password": password}
