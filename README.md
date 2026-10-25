@@ -2,13 +2,11 @@
 
 Web app that provides access to independent Python projects through REST API. 
 
-Backed uses FAST API. 
-
 ## Arhitecture
 There are threee main components
 
-+ Frontend: Web interface that communicates with backed through HTTP requests
-+ Backend: FastAPI app that exposes Python functionalities through REST endpoints
++ [Frontend](/frontend/README.md): Web interface that communicates with backed through HTTP requests
++ [Backend](/backend/README.md): FastAPI app that exposes Python functionalities through REST endpoints
 + Python projects: Independend packages 
 
 ## Structure
@@ -46,6 +44,3 @@ The repository is integrated into the web application using a Git submodule.
 
 Python packages are installed after dev image is created
 
-## Subcompoents
-
-[Backend](/backend/README.md)
