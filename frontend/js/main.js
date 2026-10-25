@@ -1,3 +1,5 @@
+import { generatePassword } from "./api.js";
+
 const generateButton = document.getElementById("generate-button");
 const copyButton = document.getElementById("copy-button");
 const copyButtonLabel = copyButton.querySelector("span");
@@ -17,24 +19,23 @@ copyButton.addEventListener("click", async () => {
 });
 
 generateButton.addEventListener("click", async () => {
-    const length = passwordLengthInput.value;
+    const length = Number(passwordLengthInput.value);
 
+    if (!Number.isInteger(length) || length < 8 || length > 128) {
+        passwordOutput.textContent =
+            "Password length must be between 8 and 128.";
+        return;
+    }
+    passwordOutput.textContent =
+            "Password length must be between 8 and 128.";
     passwordOutput.textContent = "Generating...";
     copyButton.disabled = true;
     copyButtonLabel.textContent = "Copy";
 
     try {
-        const response = await fetch(
-            `http://localhost:8000/password/generate-pass?length=${length}`
-        );
+        const password = await generatePassword(length);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        passwordOutput.textContent = data.password;
+        passwordOutput.textContent = password;
         copyButton.disabled = false;
 
     } catch (error) {
