@@ -19,19 +19,18 @@ copyButton.addEventListener("click", async () => {
 });
 
 generateButton.addEventListener("click", async () => {
-    const length = Number(passwordLengthInput.value);
+    copyButton.disabled = true;
+    copyButtonLabel.textContent = "Copy";
 
+    const length = Number(passwordLengthInput.value);
     if (!Number.isInteger(length) || length < 8 || length > 128) {
         passwordOutput.textContent =
             "Password length must be between 8 and 128.";
         return;
     }
-    passwordOutput.textContent =
-            "Password length must be between 8 and 128.";
-    passwordOutput.textContent = "Generating...";
-    copyButton.disabled = true;
-    copyButtonLabel.textContent = "Copy";
 
+    passwordOutput.textContent = "Generating...";
+    generateButton.disabled = true;
     try {
         const password = await generatePassword(length);
 
@@ -41,5 +40,7 @@ generateButton.addEventListener("click", async () => {
     } catch (error) {
         passwordOutput.textContent = "Failed to generate password.";
         console.error(error);
+    } finally {
+        generateButton.disabled = false;
     }
 });

@@ -216,7 +216,7 @@ h1 {
     transition: box-shadow 150ms ease, filter 150ms ease, transform 150ms ease;
 }
 
-.generate-button:hover {
+.generate-button:hover:not(:disabled) {
     box-shadow: 0 10px 20px rgb(83 105 215 / 30%);
     filter: brightness(1.04);
     transform: translateY(-1px);
@@ -224,6 +224,14 @@ h1 {
 
 .generate-button:active {
     transform: translateY(0);
+}
+
+.generate-button:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    filter: none;
+    opacity: 0.55;
+    transform: none;
 }
 
 .security-note {
