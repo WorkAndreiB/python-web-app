@@ -1,0 +1,39 @@
+name: Backend Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run FastAPI Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+
+      - name: Install password generator
+        run: |
+          python -m pip install -e python/password-generator
+
+      - name: Run backend tests
+        run: |
+          python -m pytest backend/tests/ -v
