@@ -1,2 +1,7 @@
+# packages needed for the application
 fastapi[standard]
 uvicorn[standard]
+
+# packages needed for tests
+pytest
+httpx
