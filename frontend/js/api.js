@@ -5,7 +5,7 @@ const API_BASE_URL = "http://localhost:8000";
 export async function generatePassword(length) {
     const url = `${API_BASE_URL}/password/generate-pass?length=${length}`;
 
-    console.log("request URL:", url);
+    console.log("request URL: ", url);
 
     const response = await fetch(url);
 
