@@ -1,16 +1,12 @@
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /workspace
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     git \
     ssh \
     && rm -rf /var/lib/apt/lists/*
-
-COPY python/password-generator/ /packages/password-generator/
-
-RUN pip install --no-cache-dir /packages/password-generator
 
 COPY backend/requirements.txt .
 
