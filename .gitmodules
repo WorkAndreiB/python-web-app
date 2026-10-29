@@ -1,3 +1,3 @@
 [submodule "python"]
 	path = python
-	url = git@github.com:WorkAndreiB/python.git
+	url = https://github.com/WorkAndreiB/python.git
