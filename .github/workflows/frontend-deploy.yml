@@ -1,39 +1,33 @@
-name: Frontend Deploy to CloudFlare
+name: Deploy Frontend to Cloudflare
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - "frontend/**"
       - "wrangler.jsonc"
       - ".github/workflows/frontend-deploy.yml"
 
   workflow_dispatch:
 
-  permissions:
-    contents: read
+permissions:
+  contents: read
 
-  # cancel the in-progress deployment if a new one is triggered
-  concurrency:
-    group: frontend-production
-    cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-  jobs:
-    deploy:
-      name: Deploy Frontend
-      runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
-          with:
-            submodules: false
-
-        - name: Deploy to Cloudflare
-          uses: cloudflare/wrangler-action@v4
-          with:
-            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-            accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-            command: deploy
-      
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: deploy --config wrangler.jsonc
