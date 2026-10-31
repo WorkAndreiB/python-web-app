@@ -250,7 +250,23 @@ h1 {
     color: #54a994;
 }
 
-button:focus-visible {
+.back-link {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    color: #52627d;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.back-link:hover {
+    color: #4c62cc;
+}
+
+button:focus-visible,
+.back-link:focus-visible {
     outline: 3px solid rgb(91 115 224 / 38%);
     outline-offset: 3px;
 }

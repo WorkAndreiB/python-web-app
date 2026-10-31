@@ -5,64 +5,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Password Generator</title>
+    <title>Beyond Main — Portfolio &amp; Learning Playground</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-    <main class="page-shell">
-        <section class="generator-card" aria-labelledby="page-title">
-            <div class="brand-mark" aria-hidden="true">✳</div>
-            <p class="eyebrow">SIMPLE. SECURE. YOURS.</p>
-            <h1 id="page-title">Password Generator</h1>
-            <p class="intro">Create a strong password in seconds. Make it yours, keep it safe.</p>
+    <header class="site-header">
+        <a class="brand" href="./">
+            <span class="brand-mark" aria-hidden="true">✳</span>
+            <span>Beyond Main</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#apps">Apps</a>
+            <a href="#about">About</a>
+            <a href="https://github.com/WorkAndreiB/python-web-app">GitHub</a>
+        </nav>
+    </header>
 
-            <div class="password-panel">
-                <span class="panel-label">YOUR PASSWORD</span>
-                <p id="generated-password" aria-live="polite" aria-atomic="true">Your password will appear here</p>
-                <button id="copy-button" class="copy-button" type="button">
-                    <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
-                        <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path>
-                    </svg>
-                    <span>Copy</span>
-                </button>
-            </div>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="eyebrow">PORTFOLIO &amp; LEARNING PLAYGROUND</p>
+            <h1 id="hero-title">Beyond Main</h1>
+            <p class="hero-intro">Beyond Main is my personal playground for exploring new technologies and developing skills.</p>
+            <a class="hero-cta" href="#apps">Explore the apps</a>
+        </section>
 
-            <div class="controls">
-                <div class="length-control">
-                    <label for="password-length">Password length</label>
-                    <span class="length-hint">8–128 characters</span>
-                    <input
-                        type="number"
-                        id="password-length"
-                        min="8"
-                        max="128"
-                        value="16"
-                    >
-                </div>
+        <section id="apps" class="apps-section" aria-labelledby="apps-title">
+            <p class="eyebrow">THE PLAYGROUND</p>
+            <h2 id="apps-title">Apps</h2>
+            <p class="section-intro">Small tools built end to end. Pick a thumbnail and try one.</p>
 
-                <button id="generate-button" class="generate-button" type="button">
-                    <span>Generate password</span>
-                    <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M20 7v5h-5M4 17v-5h5"></path>
-                        <path d="M5.6 9a7 7 0 0 1 11.7-2L20 12M4 12l2.7 5a7 7 0 0 0 11.7-2"></path>
-                    </svg>
-                </button>
-            </div>
+            <ul class="app-grid">
+                <li>
+                    <a class="app-card" href="apps/password-generator/">
+                        <span class="app-thumbnail" aria-hidden="true">
+                            <svg viewBox="0 0 320 200" focusable="false">
+                                <rect width="320" height="200" fill="#e7edfd"></rect>
+                                <rect x="70" y="28" width="180" height="144" rx="18" fill="#ffffff" stroke="#dfe6f3"></rect>
+                                <rect x="90" y="50" width="140" height="36" rx="9" fill="#f8faff" stroke="#dfe6f3"></rect>
+                                <circle cx="106" cy="68" r="4" fill="#536de2"></circle>
+                                <circle cx="120" cy="68" r="4" fill="#536de2"></circle>
+                                <circle cx="134" cy="68" r="4" fill="#536de2"></circle>
+                                <circle cx="148" cy="68" r="4" fill="#7c8ff0"></circle>
+                                <circle cx="162" cy="68" r="4" fill="#7c8ff0"></circle>
+                                <circle cx="176" cy="68" r="4" fill="#a5b1f5"></circle>
+                                <rect x="196" y="58" width="24" height="20" rx="6" fill="#ffffff" stroke="#dce4f2"></rect>
+                                <rect x="202" y="66" width="8" height="8" rx="1.5" fill="none" stroke="#8a96aa" stroke-width="1.5"></rect>
+                                <rect x="206" y="62" width="8" height="8" rx="1.5" fill="#ffffff" stroke="#8a96aa" stroke-width="1.5"></rect>
+                                <rect x="90" y="100" width="140" height="30" rx="9" fill="#6679e7"></rect>
+                                <rect x="132" y="112" width="56" height="6" rx="3" fill="#ffffff" opacity="0.92"></rect>
+                                <rect x="90" y="142" width="140" height="10" rx="5" fill="#eef2fc"></rect>
+                                <circle cx="246" cy="150" r="20" fill="#edf2ff" stroke="#dfe6f3"></circle>
+                                <rect x="238" y="148" width="16" height="12" rx="3" fill="none" stroke="#536de2" stroke-width="2"></rect>
+                                <path d="M241 148v-4a5 5 0 0 1 10 0v4" fill="none" stroke="#536de2" stroke-width="2"></path>
+                            </svg>
+                        </span>
+                        <span class="app-meta">
+                            <span class="app-name">Password Generator</span>
+                            <span class="app-description">
+                                Create a strong password in seconds. Choose a length,
+                                generate, and copy it to your clipboard.
+                            </span>
+                            <span class="app-tags">PYTHON · FASTAPI · JAVASCRIPT</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="app-card app-card--soon">
+                    <span class="soon-mark" aria-hidden="true">✳</span>
+                    <span class="app-name">More apps coming soon</span>
+                    <span class="app-description">New experiments are always in the works.</span>
+                </li>
+            </ul>
+        </section>
 
-            <p class="security-note">
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <rect x="4" y="10" width="16" height="11" rx="2"></rect>
-                    <path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3"></path>
-                </svg>
-                No account required
+        <section id="about" class="about-section" aria-labelledby="about-title">
+            <p class="eyebrow">WHAT IS BEYOND MAIN?</p>
+            <h2 id="about-title">About</h2>
+            <p class="section-intro">
+                Beyond Main is my personal learning playground and portfolio, where I explore new technologies, 
+                improve my software development skills, and turn ideas into working applications.
+
+                The focus is on backend development, Python, and software engineering practices, with a simple 
+                web interface that makes each project accessible and interactive.
             </p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Independent Projects</h3>
+                    <p>Each application starts as a standalone project developed 
+                        with its own structure, dependencies, and tests.</p>
+                </div>
+                <div class="about-card">
+                    <h3>FastAPI backend</h3>
+                    <p>Applications are integrated into a FastAPI backend and exposed through 
+                        REST APIs. The backend is containerized using Docker and hosted on Render.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Web Interface</h3>
+                    <p>A lightweight web interface allows one to interact with the applications directly.
+                        The frontend is hosted on Cloudflare Workers and communicates with the backend through HTTP requests.</p>
+                </div>
+            </div>
         </section>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <footer class="site-footer">
+        <p>✳ Beyond Main — built for learning, one app at a time.</p>
+        <a href="https://github.com/WorkAndreiB/python-web-app">View on GitHub</a>
+    </footer>
 </body>
 
 </html>

@@ -7,6 +7,13 @@ It communicates with the backend through asynchronous HTTP requests using the Ja
 
 Deployed to CloudFlare using GitHub Actions
 
+## Structure
+
++ `index.html`: Landing page presenting Beyond Main with thumbnails linking to each app
++ `apps/`: One folder per application (e.g. `apps/password-generator/`)
++ `css/`: Stylesheets (`home.css` for the landing page, `style.css` for the apps)
++ `js/`: JavaScript modules used by the apps
+
 ## Deployment
 
 Deployed automatically using GitHub Actions and Cloudflare Wrangler.
