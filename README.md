@@ -6,6 +6,8 @@ The project provides a web interface for interaction with different applications
 
 # Overview
 
+The front page introduces Beyond Main and links to each application through thumbnail cards.
+
 Currently the application includes a password generator implemented in Python and exposed through a REST API. Users can select a password length, generate a random password, and copy the result to their clipboard.
 
 
@@ -36,7 +38,11 @@ python-web-app/
 │   └── requirements.txt
 │
 ├── frontend/
+|   ├── apps/
+|   |   └── password-generator/
+|   |       └── index.html
 |   ├── css
+|   |   ├── home.css
 |   |   ├── style.css
 |   ├── js
 |   |   ├── api.js
