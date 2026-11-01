@@ -19,8 +19,7 @@
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-python.debugpy",
-                "github.vscode-github-actions"
+                "ms-python.debugpy"
             ]
         }
     }
