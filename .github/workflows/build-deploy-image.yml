@@ -1,0 +1,28 @@
+name: Build Deploy Image
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "backend/Dockerfile.prod"
+      - "backend/Dockerfile.prod.dockerignore"
+      - "backend/requirements.txt"
+      - "backend/app/**"
+      - "python"
+      - ".gitmodules"
+      - ".github/workflows/build-deploy-image.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Docker image
+        run: docker build -f backend/Dockerfile.prod -t deploy-image:latest .
+
