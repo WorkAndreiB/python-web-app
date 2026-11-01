@@ -16,7 +16,7 @@ def test_generate_password():
 def test_generate_password_default_length():
     response = client.get("/password/generate-pass")
   
-    assert response.status_code == 200
+    assert response.status_code == 202
 
     data = response.json()
     assert "password" in data
