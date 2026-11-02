@@ -17,7 +17,7 @@ def get_all_books():
     return {"books": BOOKS}
 
 # query parameters
-# requestformat: http://localhost:8000/books/books?category=math
+# requestformat: http://localhost:8000/books/books/category?category=math
 @router.get("/books/category")
 def get_book_category(category: str):
     filtered_books = [book for book in BOOKS if book["category"].casefold() == category.casefold()]

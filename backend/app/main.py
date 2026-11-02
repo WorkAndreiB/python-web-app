@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import password_generator
-from .api import books
+from .api import books, books_v2
 
 
 app = FastAPI()
@@ -24,8 +24,15 @@ app.include_router(
     tags=["Password Generator"]
 )
 
+# app.include_router(
+#     router=books.router,
+#     prefix="/books",
+#     tags=["Books"]
+# )
+
 app.include_router(
-    router=books.router,
-    prefix="/books",
-    tags=["Books"]
+    router=books_v2.router,
+    prefix="/books_v2",
+    tags=["Books V2"]
 )
+
