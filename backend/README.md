@@ -5,6 +5,38 @@ The backend uses FastAPI to expose Python functionality through HTTP endpoints.
 + Main application is responsible for createting the FastAPI instance and register routers
 + Each Python project can have it's own API router
 
+## APIs
+
+### Password Generator
+
+Generates random passwords. Router: [password_generator.py](/backend/app/api/password_generator.py), mounted at prefix `/password`.
+
+| Method | Path                      | Description              |
+|--------|---------------------------|--------------------------|
+| GET    | `/password/generate-pass` | Generate a random password |
+
+Query parameters:
+
+| Parameter | Type | Constraints      | Default |
+|-----------|------|------------------|---------|
+| `length`  | int  | between 8 and 128 | 12      |
+
+Response:
+
+```json
+{"password": "aB3$xY9..."}
+```
+
+### Task Manager
+
+Manages tasks backed by JSON file storage. Router: [task_manager/](/backend/app/api/task_manager), mounted at prefix `/tasks`. See the [Task Manager README](/backend/app/api/task_manager/README.md) for full details.
+
+| Method | Path     | Description       |
+|--------|----------|-------------------|
+| GET    | `/tasks` | List all tasks    |
+| POST   | `/tasks` | Create a new task |
+
+Storage backend is configured via [config.toml](/backend/app/api/task_manager/config.toml).
 
 ## Start local FastAPI server:
 1. ```uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload```
