@@ -39,9 +39,8 @@ jobs:
 
       - name: Install packages
         run: |
-          echo "Installing password_generator and task_manager packages"
+          echo "Installing password_generator package"
           python -m pip install -e python/password-generator
-          python -m pip install -e python/task_manager
 
       - name: Run backend tests
         run: |
