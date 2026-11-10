@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import password_generator
+from .api import task_manager
 
 app = FastAPI()
 
@@ -21,4 +22,10 @@ app.include_router(
     router=password_generator.pass_generator_router,
     prefix="/password",
     tags=["Password Generator"]
+)
+
+app.include_router(
+    router=task_manager.task_manager_router,
+    prefix="/tasks",
+    tags=["Task Manager"]
 )
