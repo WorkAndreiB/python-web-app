@@ -37,9 +37,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
 
-      - name: Install password generator
+      - name: Install packages
         run: |
+          echo "Installing password_generator and task_manager packages"
           python -m pip install -e python/password-generator
+          python -m pip install -e python/task_manager
 
       - name: Run backend tests
         run: |
