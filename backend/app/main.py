@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import password_generator
-from .api import task_manager
+from .api.task_manager import task_manager
 
 app = FastAPI()
 
