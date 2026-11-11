@@ -29,12 +29,12 @@ Response:
 
 ### Task Manager
 
-Manages tasks backed by JSON file storage. Router: [task_manager/](/backend/app/api/task_manager), mounted at prefix `/tasks`. See the [Task Manager README](/backend/app/api/task_manager/README.md) for full details.
+Manages tasks backed by JSON file storage. Router: [task_manager/](/backend/app/api/task_manager), mounted at prefix `/tasks-manager`. See the [Task Manager README](/backend/app/api/task_manager/README.md) for full details.
 
-| Method | Path     | Description       |
-|--------|----------|-------------------|
-| GET    | `/tasks` | List all tasks    |
-| POST   | `/tasks` | Create a new task |
+| Method | Path                   | Description       |
+|--------|------------------------|-------------------|
+| GET    | `/tasks-manager/tasks` | List all tasks    |
+| POST   | `/tasks-manager/tasks` | Create a new task |
 
 Storage backend is configured via [config.toml](/backend/app/api/task_manager/config.toml).
 
