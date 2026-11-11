@@ -1,6 +1,7 @@
 # packages needed for the application
 fastapi[standard]
 uvicorn[standard]
+pydantic>=2.11.0
 
 # packages needed for tests
 pytest

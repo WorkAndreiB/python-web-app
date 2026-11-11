@@ -1,0 +1,3 @@
+[storage]
+type = "json"
+path = "backend/data/tasks.json"

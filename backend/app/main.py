@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import password_generator
+from .api.task_manager import task_manager
 
 app = FastAPI()
 
@@ -13,7 +14,7 @@ app.add_middleware(
         "https://beyond-main.andrei-baciu94.workers.dev"
     ],
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -21,4 +22,10 @@ app.include_router(
     router=password_generator.pass_generator_router,
     prefix="/password",
     tags=["Password Generator"]
+)
+
+app.include_router(
+    router=task_manager.task_manager_router,
+    prefix="/tasks-manager",
+    tags=["Task Manager"]
 )
