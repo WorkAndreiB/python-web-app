@@ -4,10 +4,10 @@ FastAPI router that exposes the `task_manager` Python package (from the `python`
 
 ## Endpoints
 
-| Method | Path     | Description        | Success status |
-|--------|----------|--------------------|----------------|
-| GET    | `/tasks` | List all tasks     | 200            |
-| POST   | `/tasks` | Create a new task  | 201            |
+| Method | Path                   | Description        | Success status |
+|--------|------------------------|--------------------|----------------|
+| GET    | `/tasks-manager/tasks` | List all tasks     | 200            |
+| POST   | `/tasks-manager/tasks` | Create a new task  | 201            |
 
 ### Create task — request body
 

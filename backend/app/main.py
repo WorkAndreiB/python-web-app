@@ -14,7 +14,7 @@ app.add_middleware(
         "https://beyond-main.andrei-baciu94.workers.dev"
     ],
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -26,6 +26,6 @@ app.include_router(
 
 app.include_router(
     router=task_manager.task_manager_router,
-    prefix="/tasks",
+    prefix="/tasks-manager",
     tags=["Task Manager"]
 )

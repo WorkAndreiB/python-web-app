@@ -12,8 +12,8 @@ task_manager_router = APIRouter()
 task_manager = create_task_manager()
 
 class CreateTaskRequest(BaseModel):
-    title: str = Field(description="The title of the task", min_length=5)
-    description: str = Field(description="The description of the task", min_length=10)
+    title: str = Field(description="The title of the task", min_length=5, pattern=r"\S")
+    description: str = Field(description="The description of the task", min_length=10, pattern=r"\S")
     status: Literal["TODO", "IN_PROGRESS", "DONE"] = "TODO"
     priority: Literal["URGENT", "HIGH", "MEDIUM", "LOW"] = "MEDIUM"
     
