@@ -1,2 +1,2 @@
-/workspace/python/password-generator
-/workspace/python/task_manager
+python/password-generator
+python/task_manager

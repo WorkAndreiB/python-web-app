@@ -4,6 +4,7 @@ WORKDIR /workspace
 
 COPY backend/requirements.txt /workspace/requirements.txt
 COPY backend/developed_packages.txt /workspace/backend/developed_packages.txt
+COPY python/ /workspace/python/
 
 # Install Python dependencies from requirements.txt and custom packages listed in developed_packages.txt
 RUN pip install --no-cache-dir -r /workspace/requirements.txt \
