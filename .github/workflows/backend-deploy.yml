@@ -1,10 +1,16 @@
 name: Backend Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  workflow_dispatch:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-deploy.yml'
+      - '.github/workflows/build-deploy-image.yml'
+      - 'python'
+      - '.gitmodules'
 
 jobs:
   build-deploy-image:
