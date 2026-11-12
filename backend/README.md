@@ -39,6 +39,15 @@ Manages tasks backed by JSON file storage. Router: [task_manager/](/backend/app/
 Storage backend is configured via [config.toml](/backend/app/api/task_manager/config.toml).
 
 ## Start local FastAPI server:
+The devcontainer installs the local Python packages in editable mode, so source
+changes are picked up when the server reloads. Initialize the Python submodule
+before creating the devcontainer. Keep `backend/work_packages_dev.txt` in
+sync with the production list in `backend/work_packages.txt` when adding
+or removing packages. Reinstall after changing package metadata or dependencies.
+Package paths are relative to the repository root. To install the production
+packages locally, run `python -m pip install -r backend/work_packages.txt`
+from the repository root after initializing the submodule.
+
 1. ```uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload```
 
 or
@@ -51,11 +60,15 @@ Use [Dockerfile](/backend/Dockerfile) for local development
 
 Use [Dockerfile.prod](/backend/Dockerfile.prod) to create the deployment image
 
+Initialize the Python submodule before building the production image:
+`git submodule update --init --recursive`. Build from the repository root with
+`docker build -f backend/Dockerfile.prod -t deploy-image:latest .`.
+
 The image contains:
 + Python runtime.
 + FastAPI and Uvicorn.
 + Backend application code.
-+ The installable password-generator package.
++ The local packages listed in `backend/work_packages.txt`.
 
 
 ## Testing

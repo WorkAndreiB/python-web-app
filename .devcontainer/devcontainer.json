@@ -11,7 +11,7 @@
         8000,
         5500
     ],
-    "postCreateCommand": "pip install -e /workspace/python/password-generator && pip install -e /workspace/python/task_manager",
+    "postCreateCommand": "cd /workspace && pip install --no-cache-dir -r backend/work_packages_dev.txt",
     "customizations": {
         "vscode": {
             "extensions": [

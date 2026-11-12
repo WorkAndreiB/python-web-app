@@ -1,6 +1,8 @@
 name: Build Deploy Image
 
 on:
+  workflow_dispatch:
+  workflow_call:
   pull_request:
     branches:
       - main
@@ -8,6 +10,7 @@ on:
       - "backend/Dockerfile.prod"
       - "backend/Dockerfile.prod.dockerignore"
       - "backend/requirements.txt"
+      - "backend/work_packages.txt"
       - "backend/app/**"
       - "python"
       - ".gitmodules"
@@ -25,4 +28,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build -f backend/Dockerfile.prod -t deploy-image:latest .
-
