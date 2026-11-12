@@ -3,12 +3,12 @@ FROM python:3.12-slim
 WORKDIR /workspace
 
 COPY backend/requirements.txt /workspace/requirements.txt
-COPY backend/developed_packages.txt /workspace/backend/developed_packages.txt
+COPY backend/work_packages.txt /workspace/backend/work_packages.txt
 COPY python/ /workspace/python/
 
-# Install Python dependencies from requirements.txt and custom packages listed in developed_packages.txt
+# Install Python dependencies from requirements.txt and custom packages listed in work_packages.txt
 RUN pip install --no-cache-dir -r /workspace/requirements.txt \
-    && pip install --no-cache-dir -r /workspace/backend/developed_packages.txt
+    && pip install --no-cache-dir -r /workspace/backend/work_packages.txt
 
 COPY backend/app /workspace/backend/app
 

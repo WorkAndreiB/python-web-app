@@ -11,7 +11,7 @@
         8000,
         5500
     ],
-    "postCreateCommand": "pip install -r /workspace/backend/developed_packages.txt",
+    "postCreateCommand": "cd /workspace && pip install --no-cache-dir -r backend/work_packages_dev.txt",
     "customizations": {
         "vscode": {
             "extensions": [

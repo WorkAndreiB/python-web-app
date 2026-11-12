@@ -10,7 +10,7 @@ on:
       - "backend/Dockerfile.prod"
       - "backend/Dockerfile.prod.dockerignore"
       - "backend/requirements.txt"
-      - "backend/developed_packages.txt"
+      - "backend/work_packages.txt"
       - "backend/app/**"
       - "python"
       - ".gitmodules"

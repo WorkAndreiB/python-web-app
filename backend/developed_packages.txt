@@ -1,2 +1,0 @@
-python/password-generator
-python/task_manager
