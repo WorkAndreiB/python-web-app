@@ -10,7 +10,6 @@ jobs:
   build-deploy-image:
     if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/build-deploy-image.yml
-    id: build-deploy-image
   
   deploy:
     needs: build-deploy-image
