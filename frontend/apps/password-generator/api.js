@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://beyondmain.onrender.com";
+// const API_BASE_URL = "https://beyondmain.onrender.com";
+const API_BASE_URL = "http://localhost:8000";
 
 // export makes the function available for import in other js files
 // async indicates that the function returns a promise and can be awaited
@@ -7,6 +8,7 @@ export async function generatePassword(length) {
 
     console.log("request URL: ", url);
 
+    // Make the HTTP request to the API. no option passed to fetch means it will be a GET request
     const response = await fetch(url);
 
     console.log("response status:", response.status);

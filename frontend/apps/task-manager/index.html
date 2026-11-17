@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager — Beyond Main</title>
+    <link rel="stylesheet" href="task-manager.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="back-link" href="../../">&larr; All apps</a>
+        <span class="brand"><span aria-hidden="true">✳</span> Beyond Main</span>
+    </header>
+
+    <main class="page-shell">
+        <div class="page-heading">
+            <p class="eyebrow">A LITTLE MORE ORGANIZED</p>
+            <h1>Task Manager</h1>
+            <p>Keep track of what needs doing, one task at a time.</p>
+        </div>
+
+        <div class="workspace">
+            <section class="panel form-panel" aria-labelledby="form-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR NEXT STEP</p>
+                        <h2 id="form-title">New task</h2>
+                    </div>
+                </div>
+                <form id="task-form">
+                    <label for="title">Title <span>At least 5 characters</span></label>
+                    <input id="title" name="title" minlength="5" required pattern=".*\S.*"
+                        placeholder="What needs doing?">
+
+                    <label for="description">Description <span>At least 10 characters</span></label>
+                    <textarea id="description" name="description" minlength="10" required
+                        placeholder="Add a little detail"></textarea>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="TODO">To do</option>
+                                <option value="IN_PROGRESS">In progress</option>
+                                <option value="DONE">Done</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority">
+                                <option value="URGENT">Urgent</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM" selected>Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="primary-button" id="save-button" type="submit">Add task</button>
+                        <button class="secondary-button" id="cancel-button" type="button" hidden>Cancel edit</button>
+                    </div>
+                    <p class="message" id="form-message" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="panel list-panel" aria-labelledby="tasks-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">THE BIG PICTURE</p>
+                        <h2 id="tasks-title">Your tasks</h2>
+                    </div>
+                    <button class="secondary-button" id="refresh-button" type="button">Refresh</button>
+                </div>
+                <p class="message" id="list-message" role="status" aria-live="polite">Loading tasks...</p>
+                <ul class="task-list" id="task-list"></ul>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="js/task-manager.js"></script>
+</body>
+
+</html>

@@ -19,6 +19,7 @@ copyButton.addEventListener("click", async () => {
 });
 
 generateButton.addEventListener("click", async () => {
+    console.log("Generating password...");
     copyButton.disabled = true;
     copyButtonLabel.textContent = "Copy";
 
