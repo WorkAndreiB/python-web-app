@@ -1,5 +1,4 @@
-// const API_BASE_URL = "https://beyondmain.onrender.com";
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://beyondmain.onrender.com";
 
 // export makes the function available for import in other js files
 // async indicates that the function returns a promise and can be awaited
