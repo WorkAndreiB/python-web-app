@@ -60,6 +60,9 @@ textarea { min-height: 112px; resize: vertical; }
 .message { margin: 14px 0 0; color: #52627d; font-size: 13px; line-height: 1.5; }
 .message:empty { display: none; }
 .list-panel .message { margin: 0 0 16px; }
+.task-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: -8px 0 18px; }
+.task-filters label { display: block; margin-bottom: 7px; color: #52627d; font-size: 13px; font-weight: 700; }
+.task-filters select { padding: 10px 12px; }
 .task-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .task-item { position: relative; padding: 18px; border: 1px solid #e1e8f4; border-radius: 14px; background: #f8faff; }
 .task-item h3 { padding-right: 60px; font-size: 16px; overflow-wrap: anywhere; }
@@ -75,4 +78,8 @@ textarea { min-height: 112px; resize: vertical; }
     .page-shell { padding: 20px 16px 50px; }
     .site-header { padding: 18px 16px; }
     .panel { padding: 22px; }
+}
+
+@media (max-width: 420px) {
+    .task-filters { grid-template-columns: 1fr; }
 }

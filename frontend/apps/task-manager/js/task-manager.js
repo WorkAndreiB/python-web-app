@@ -9,6 +9,8 @@ const formTitle = document.getElementById("form-title");
 const saveButton = document.getElementById("save-button");
 const cancelButton = document.getElementById("cancel-button");
 const refreshButton = document.getElementById("refresh-button");
+const statusFilter = document.getElementById("filter-status");
+const priorityFilter = document.getElementById("filter-priority");
 const formMessage = document.getElementById("form-message");
 const listMessage = document.getElementById("list-message");
 const taskList = document.getElementById("task-list");
@@ -24,6 +26,8 @@ function setBusy(value) {
     saveButton.disabled = value;
     cancelButton.disabled = value;
     refreshButton.disabled = value;
+    statusFilter.disabled = value;
+    priorityFilter.disabled = value;
     taskList.querySelectorAll("button").forEach((button) => { button.disabled = value; });
 }
 
@@ -78,14 +82,23 @@ function renderTasks(tasks) {
         item.append(heading, detail, meta, editButton);
         taskList.append(item);
     }
-    listMessage.textContent = tasks.length ? `${tasks.length} ${tasks.length === 1 ? "task" : "tasks"}` : "No tasks yet. Add one to get started.";
+    if (!tasks.length && (statusFilter.value !== "ALL" || priorityFilter.value !== "ALL")) {
+        listMessage.textContent = "No tasks match these filters.";
+    } else if (!tasks.length) {
+        listMessage.textContent = "No tasks yet. Add one to get started.";
+    } else {
+        listMessage.textContent = `${tasks.length} ${tasks.length === 1 ? "task" : "tasks"}`;
+    }
 }
 
 // call loadTasks to initially populate the task list
 async function loadTasks() {
     listMessage.textContent = "Loading tasks...";
     try {
-        const tasks = await getTasks();
+        const tasks = await getTasks({
+            status: statusFilter.value === "ALL" ? null : statusFilter.value,
+            priority: priorityFilter.value === "ALL" ? null : priorityFilter.value,
+        });
         renderTasks(tasks);
     } catch (error) {
         listMessage.textContent = "Could not load tasks. Please try refreshing.";
@@ -93,11 +106,19 @@ async function loadTasks() {
     }
 }
 
-refreshButton.addEventListener("click", async () => {
+async function reloadTasks() {
     setBusy(true);
-    await loadTasks();
-    setBusy(false);
-});
+    try {
+        await loadTasks();
+    } finally {
+        setBusy(false);
+    }
+}
+
+refreshButton.addEventListener("click", reloadTasks);
+
+statusFilter.addEventListener("change", reloadTasks);
+priorityFilter.addEventListener("change", reloadTasks);
 
 cancelButton.addEventListener("click", () => {
     resetForm();

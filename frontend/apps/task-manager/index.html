@@ -73,6 +73,27 @@
                     </div>
                     <button class="secondary-button" id="refresh-button" type="button">Refresh</button>
                 </div>
+                <div class="task-filters" aria-label="Filter tasks">
+                    <div>
+                        <label for="filter-status">Status</label>
+                        <select id="filter-status" name="filter-status">
+                            <option value="ALL">All statuses</option>
+                            <option value="TODO">To do</option>
+                            <option value="IN_PROGRESS">In progress</option>
+                            <option value="DONE">Done</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-priority">Priority</label>
+                        <select id="filter-priority" name="filter-priority">
+                            <option value="ALL">All priorities</option>
+                            <option value="URGENT">Urgent</option>
+                            <option value="HIGH">High</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="LOW">Low</option>
+                        </select>
+                    </div>
+                </div>
                 <p class="message" id="list-message" role="status" aria-live="polite">Loading tasks...</p>
                 <ul class="task-list" id="task-list"></ul>
             </section>
