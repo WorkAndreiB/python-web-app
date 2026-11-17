@@ -35,6 +35,7 @@ Manages tasks backed by JSON file storage. Router: [task_manager/](/backend/app/
 |--------|------------------------|-------------------|
 | GET    | `/tasks-manager/tasks` | List all tasks    |
 | POST   | `/tasks-manager/tasks` | Create a new task |
+| PUT    | `/tasks-manager/tasks/{task_id}` | Update a task |
 
 Storage backend is configured via [config.toml](/backend/app/api/task_manager/config.toml).
 

@@ -8,6 +8,7 @@ FastAPI router that exposes the `task_manager` Python package (from the `python`
 |--------|------------------------|--------------------|----------------|
 | GET    | `/tasks-manager/tasks` | List all tasks     | 200            |
 | POST   | `/tasks-manager/tasks` | Create a new task  | 201            |
+| PUT    | `/tasks-manager/tasks/{task_id}` | Update an existing task | 202 |
 
 ### Create task — request body
 
@@ -26,6 +27,9 @@ FastAPI router that exposes the `task_manager` Python package (from the `python`
 | `description` | string | min 10 chars                             | required |
 | `status`      | string | one of `TODO`, `IN_PROGRESS`, `DONE`     | `TODO`   |
 | `priority`    | string | one of `URGENT`, `HIGH`, `MEDIUM`, `LOW` | `MEDIUM` |
+
+Updates use the same complete request body as creation. List responses use
+numeric priority values, as described in the data model below.
 
 ## Module layout
 

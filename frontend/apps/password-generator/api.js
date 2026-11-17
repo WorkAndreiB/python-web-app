@@ -7,6 +7,7 @@ export async function generatePassword(length) {
 
     console.log("request URL: ", url);
 
+    // Make the HTTP request to the API. no option passed to fetch means it will be a GET request
     const response = await fetch(url);
 
     console.log("response status:", response.status);

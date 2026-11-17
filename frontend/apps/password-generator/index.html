@@ -7,7 +7,7 @@
 
     <title>Password Generator — Beyond Main</title>
 
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -36,13 +36,7 @@
                 <div class="length-control">
                     <label for="password-length">Password length</label>
                     <span class="length-hint">8–128 characters</span>
-                    <input
-                        type="number"
-                        id="password-length"
-                        min="8"
-                        max="128"
-                        value="16"
-                    >
+                    <input type="number" id="password-length" min="8" max="128" value="16">
                 </div>
 
                 <button id="generate-button" class="generate-button" type="button">
@@ -64,7 +58,7 @@
         </section>
     </main>
 
-    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="password_generator.js"></script>
 </body>
 
 </html>
