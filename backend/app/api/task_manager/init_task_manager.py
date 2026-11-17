@@ -21,10 +21,6 @@ def create_task_manager():
 
     storage_config = config["storage"]
 
-    print(storage_config["type"])
-    print(storage_config["path"])
-    
-    
 
     if storage_config["type"] == "json":
         configure_storage_path(storage_config["path"])
