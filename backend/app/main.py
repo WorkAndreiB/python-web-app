@@ -14,7 +14,7 @@ app.add_middleware(
         "https://beyond-main.andrei-baciu94.workers.dev"
     ],
     allow_credentials=False,
-    allow_methods=["GET", "POST", "PUT"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
 

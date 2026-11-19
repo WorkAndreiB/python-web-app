@@ -20,6 +20,7 @@
     },
     "files.exclude": {
         "**/build": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/*.egg-info": true,
     }
 }
