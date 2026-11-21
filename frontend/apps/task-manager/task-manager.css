@@ -52,11 +52,13 @@ input, textarea, select { width: 100%; padding: 12px; border: 1px solid #dce4f0;
 textarea { min-height: 112px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-.primary-button, .secondary-button, .edit-button { min-height: 42px; padding: 0 16px; border-radius: 10px; font-size: 13px; font-weight: 700; }
+.primary-button, .secondary-button, .edit-button, .delete-button { min-height: 42px; padding: 0 16px; border-radius: 10px; font-size: 13px; font-weight: 700; }
 .primary-button { border: 0; background: linear-gradient(135deg, #6679e7, #5268d5); color: #fff; }
 .secondary-button, .edit-button { border: 1px solid #dce4f2; background: #fff; color: #52627d; }
+.delete-button { border: 1px solid #f0cfd2; background: #fff; color: #b33b45; }
 .primary-button:hover:not(:disabled) { filter: brightness(1.05); }
 .secondary-button:hover:not(:disabled), .edit-button:hover:not(:disabled) { border-color: #b9c6ef; color: #4c62cc; }
+.delete-button:hover:not(:disabled) { border-color: #dc8f96; background: #fff4f4; }
 .message { margin: 14px 0 0; color: #52627d; font-size: 13px; line-height: 1.5; }
 .message:empty { display: none; }
 .list-panel .message { margin: 0 0 16px; }
@@ -65,12 +67,13 @@ textarea { min-height: 112px; resize: vertical; }
 .task-filters select { padding: 10px 12px; }
 .task-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .task-item { position: relative; padding: 18px; border: 1px solid #e1e8f4; border-radius: 14px; background: #f8faff; }
-.task-item h3 { padding-right: 60px; font-size: 16px; overflow-wrap: anywhere; }
+.task-item h3 { padding-right: 155px; font-size: 16px; overflow-wrap: anywhere; }
 .task-description { margin: 8px 0 14px; color: #52627d; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
 .task-meta { display: flex; flex-wrap: wrap; gap: 7px; }
 .badge { padding: 5px 9px; border-radius: 7px; background: #e9eeff; color: #4c62cc; font-size: 11px; font-weight: 700; }
 .priority { background: #edf5f2; color: #387968; text-transform: capitalize; }
-.edit-button { position: absolute; top: 12px; right: 12px; min-height: 34px; padding: 0 12px; }
+.task-actions { position: absolute; top: 12px; right: 12px; display: flex; gap: 7px; }
+.edit-button, .delete-button { min-height: 34px; padding: 0 12px; }
 :focus-visible { outline: 3px solid rgb(91 115 224 / 45%); outline-offset: 3px; }
 
 @media (max-width: 700px) {
@@ -82,4 +85,6 @@ textarea { min-height: 112px; resize: vertical; }
 
 @media (max-width: 420px) {
     .task-filters { grid-template-columns: 1fr; }
+    .task-item h3 { padding-right: 0; }
+    .task-actions { position: static; margin-top: 14px; }
 }
