@@ -17,8 +17,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/build-deploy-image.yml
   
+  backend_test:
+    uses: ./.github/workflows/backend-test.yml
+  
   deploy:
-    needs: build-deploy-image
+    needs: [build-deploy-image, backend_test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

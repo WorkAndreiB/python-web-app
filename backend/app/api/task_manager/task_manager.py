@@ -70,3 +70,10 @@ def update_task(task_id: int, task: CreateTaskRequest):
     except ValueError as error:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(error)) 
     
+
+@task_manager_router.delete("/tasks/{task_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_task(task_id: int):
+    try:
+        task_manager.delete_task(task_id)
+    except ValueError as error:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(error)) 
