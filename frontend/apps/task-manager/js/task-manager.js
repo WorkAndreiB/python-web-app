@@ -92,6 +92,7 @@ function renderTasks(tasks) {
             listMessage.textContent = "Deleting task...";
             try {
                 await deleteTask(task.id);
+                item.remove();
                 if (editingId === task.id) {
                     resetForm();
                 }
