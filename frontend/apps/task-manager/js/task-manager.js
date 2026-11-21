@@ -1,4 +1,4 @@
-import { createTask, getTasks, updateTask } from "./api.js";
+import { createTask, deleteTask, getTasks, updateTask } from "./api.js";
 
 const form = document.getElementById("task-form");
 const title = document.getElementById("title");
@@ -79,7 +79,35 @@ function renderTasks(tasks) {
             formMessage.textContent = "";
             title.focus();
         });
-        item.append(heading, detail, meta, editButton);
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("aria-label", `Delete ${task.title}`);
+        deleteButton.disabled = busy;
+        deleteButton.addEventListener("click", async () => {
+            if (busy || !window.confirm(`Delete "${task.title}"?`)) return;
+
+            setBusy(true);
+            listMessage.textContent = "Deleting task...";
+            try {
+                await deleteTask(task.id);
+                if (editingId === task.id) {
+                    resetForm();
+                }
+                formMessage.textContent = "";
+                await loadTasks();
+            } catch (error) {
+                listMessage.textContent = "Could not delete task. Please try again.";
+                console.error("Failed to delete task.", error);
+            } finally {
+                setBusy(false);
+            }
+        });
+        const actions = document.createElement("div");
+        actions.className = "task-actions";
+        actions.append(editButton, deleteButton);
+        item.append(heading, detail, meta, actions);
         taskList.append(item);
     }
     if (!tasks.length && (statusFilter.value !== "ALL" || priorityFilter.value !== "ALL")) {

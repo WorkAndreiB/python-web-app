@@ -5,6 +5,9 @@ async function taskRequest(path, options) {
     if (!response.ok) {
         throw new Error(`Request failed (HTTP ${response.status}).`);
     }
+    if (response.status === 204) {
+        return null;
+    }
     return response.json();
 }
 
@@ -38,5 +41,11 @@ export function updateTask(id, task) {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task),
+    });
+}
+
+export function deleteTask(id) {
+    return taskRequest(`/${encodeURIComponent(id)}`, {
+        method: "DELETE",
     });
 }
