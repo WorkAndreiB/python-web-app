@@ -6,12 +6,6 @@
     },
     "workspaceFolder": "/workspace",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    // make the specified port available to the host machine
-    "forwardPorts": [
-        8000,
-        5500
-    ],
-    "postCreateCommand": "cd /workspace && pip install --no-cache-dir -r backend/work_packages_dev.txt",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -20,5 +14,12 @@
                 "ms-python.debugpy"
             ]
         }
-    }
+    },
+    "remoteUser": "developer",
+    // make the specified port available to the host machine
+    "forwardPorts": [
+        8000,
+        5500
+    ],
+    "postCreateCommand": "cd /workspace && pip install --no-cache-dir -r backend/work_packages_dev.txt",
 }

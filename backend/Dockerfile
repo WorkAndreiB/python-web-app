@@ -1,6 +1,20 @@
 FROM python:3.12
 
+ARG USERNAME=developer
+ARG USER_UID=1000
+ARG USER_GID=1000
+
+# Create group and user
+RUN groupadd --gid ${USER_GID} ${USERNAME} \
+    && useradd \
+        --uid ${USER_UID} \
+        --gid ${USER_GID} \
+        --create-home \
+        --shell /bin/bash \
+        ${USERNAME}
+
 WORKDIR /workspace
+
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -16,4 +30,4 @@ COPY backend/app/ ./app/
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+USER ${USERNAME}
